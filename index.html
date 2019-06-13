@@ -7,6 +7,7 @@
     <style>
     body {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
@@ -14,17 +15,27 @@
     </style>
 </head>
 <body>
-   <input id="input" type="text"></input>
-   <button id="btnCounter">+</button>   
+    <h2>total expense</h2>
+    <h1 id="headingTotal"></h1>
+   <input id="inputAmount" type="text"></input>
+   <button id="btnAddExpense">+</button>   
 <script>
-        let counter = 0;
-        function counterIncrement()
-        {
-        counter=counter+1;
-        console.log(counter);
-        }
-        const element = document.querySelector("#btnCounter");
-        element.addEventListener("click",counterIncrement,false); 
+    const headingEl = document.querySelector("#headingTotal");
+    let totalExpense=0;
+    headingEl.textContent = totalExpense;
+    function addExpenseToTotal()
+    {
+    const inputElement = document.querySelector("#inputAmount");
+    const textAmount = inputElement.value;
+     
+    const expense = parseInt(textAmount,10);
+    
+    totalExpense = totalExpense +  expense;
+    headingEl.textContent = totalExpense;
+    
+    }
+    const element = document.querySelector("#btnAddExpense");
+    element.addEventListener("click",addExpenseToTotal,false); 
 </script>
 </body>
 </html>
