@@ -17,19 +17,28 @@
 <body>
     <h2>total expense</h2>
     <h1 id="headingTotal"></h1>
-   <input id="inputAmount" type="text"></input>
+   <input id="inputAmount" type="text">
+   <input id ="inputDesc" type="text">
    <button id="btnAddExpense">+</button>   
 <script>
     const headingEl = document.querySelector("#headingTotal");
+    const inputDescEl = document.querySelector("#inputDesc");
+    const inputElement = document.querySelector("#inputAmount");
     let totalExpense=0;
     headingEl.textContent = totalExpense;
+    const allExpenses=[];
     function addExpenseToTotal()
     {
-    const inputElement = document.querySelector("#inputAmount");
+    const expenseItem={};
     const textAmount = inputElement.value;
-     
+    const textDesc = inputDescEl.value;
     const expense = parseInt(textAmount,10);
-    
+    expenseItem.desc=textDesc;
+    expenseItem.amount=expense;
+
+    allExpenses.push(expenseItem);
+    console.clear();
+    console.table(allExpenses);
     totalExpense = totalExpense +  expense;
     headingEl.textContent = totalExpense;
     
