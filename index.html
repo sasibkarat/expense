@@ -15,7 +15,6 @@
     </style>
 </head>
 <body>
-    <h2>total expense</h2>
     <h1 id="headingTotal"></h1>
    <input id="inputAmount" type="text">
    <input id ="inputDesc" type="text">
@@ -25,7 +24,7 @@
     const inputDescEl = document.querySelector("#inputDesc");
     const inputElement = document.querySelector("#inputAmount");
     let totalExpense=0;
-    headingEl.textContent = totalExpense;
+    headingEl.textContent = totalExpense ;
     const allExpenses=[];
     function addExpenseToTotal()
     {
@@ -37,10 +36,11 @@
     expenseItem.amount=expense;
 
     allExpenses.push(expenseItem);
-    console.clear();
-    console.table(allExpenses);
+   
     totalExpense = totalExpense +  expense;
-    headingEl.textContent = totalExpense;
+    
+    const someText = `the expense for this month is:${totalExpense}`
+    headingEl.textContent = someText;
     
     }
     const element = document.querySelector("#btnAddExpense");
